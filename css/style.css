@@ -1,0 +1,9 @@
+#captcha {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.QrCode{
+  max-width: 1rem;
+  max-height: 1rem;
+}
