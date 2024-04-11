@@ -1,0 +1,119 @@
+html,body{
+  margin: 0;
+}
+
+body {
+background-color: #2a2130ce;
+}
+
+div{
+  border-color: red;
+  border-style: solid;
+}
+
+
+.main{
+background-color: #2A2130;
+}
+
+.navbar{
+    margin: 0px 8px 16px 8px;
+    /* Display flex */
+    display: flex;
+    /* Flex Direction */
+    flex-direction: row;
+    /* Axe direction */
+    justify-content:flex-start;
+    /* Main axes */
+    align-items:start ;
+    /* Cross axes */
+    flex-wrap:nowrap ;
+    /* Warpping */
+    align-content:normal ;
+    /* Works with Wraping */
+    gap: 8px;;
+    /* Gap */
+}
+
+.navbar-top-left{
+  border-color: rgb(9, 255, 0);
+  border-style: solid;
+    /* Display flex */
+      display: flex;
+      /* Flex Direction */
+      flex-direction: row;
+      /* Axe direction */
+      justify-content: flex-start;
+      /* Main axes */
+      align-items: start;
+      /* Cross axes */
+      flex-wrap: nowrap;
+      /* Warpping */
+      align-content: normal;
+      /* Works with Wraping */
+      gap: 8px;
+      /* Gap */
+}
+
+.logo{
+    /* 1st value grow,2nd how fast it shrinks, 3rd pixel ovveride */
+    flex:auto ;
+    align-self: center;
+    /* Ovveride pos */
+    max-width: 32px;
+    max-height: 32px;
+}
+
+.logo-text
+{
+/* 1st value grow,2nd how fast it shrinks, 3rd pixel ovveride */
+  flex: auto;
+  align-self: center;
+  /* Ovveride pos */
+
+}
+
+.navbar-center{
+  border-color: rgb(0, 255, 157);
+  border-style: solid;
+      /* Display flex */
+        display: flex;
+        /* Flex Direction */
+        flex-direction: row;
+        /* Axe direction */
+        justify-content: flex-end;
+        /* Main axes */
+        align-items: start;
+        /* Cross axes */
+        flex-wrap: nowrap;
+        /* Warpping */
+        align-content: normal;
+        /* Works with Wraping */
+        gap: 2px;
+        /* Gap */
+     flex: auto;
+     align-self: center;   
+}
+
+.navbar-top-right{
+  border-color: rgb(0, 81, 255);
+  border-style: solid;
+  /* 1st value grow,2nd how fast it shrinks, 3rd pixel ovveride */
+    flex: auto;
+    align-self:center;
+    /* Ovveride pos */
+}
+
+.about-me{
+margin:16px 8px 16px 8px;
+}
+
+.about-me-title{
+
+}
+
+.about-me-desc{
+margin-left: 25%;
+}
+
+
