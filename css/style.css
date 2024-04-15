@@ -1,119 +1,175 @@
-html,body{
-  margin: 0;
+#map {
+   height: 400px;
+   width: 100%;
+   border: none;
 }
 
+html,
 body {
-background-color: #2a2130ce;
+   margin: 0;
+   background-color: #2a2130;
 }
 
-div{
-  border-color: red;
-  border-style: solid;
+.main {
+   background-color: #2a2130;
 }
 
-
-.main{
-background-color: #2A2130;
+.navbar {
+   padding: 8px 8px 16px 8px;
+   /* Display flex */
+   display: flex;
+   /* Flex Direction */
+   flex-direction: row;
+   /* Axe direction */
+   justify-content: flex-start;
+   /* Main axes */
+   align-items: start;
+   /* Cross axes */
+   flex-wrap: nowrap;
+   /* Warpping */
+   align-content: normal;
+   /* Works with Wraping */
+   gap: 8px;
+   /* Gap */
+   background-color: #2a2130;
 }
 
-.navbar{
-    margin: 0px 8px 16px 8px;
-    /* Display flex */
-    display: flex;
-    /* Flex Direction */
-    flex-direction: row;
-    /* Axe direction */
-    justify-content:flex-start;
-    /* Main axes */
-    align-items:start ;
-    /* Cross axes */
-    flex-wrap:nowrap ;
-    /* Warpping */
-    align-content:normal ;
-    /* Works with Wraping */
-    gap: 8px;;
-    /* Gap */
+.navbar-top-left {
+   border-color: red;
+   border-style: solid;
+   /* Display flex */
+   display: flex;
+   /* Flex Direction */
+   flex-direction: row;
+   /* Axe direction */
+   justify-content: flex-start;
+   /* Main axes */
+   align-items: start;
+   /* Cross axes */
+   flex-wrap: nowrap;
+   /* Warpping */
+   align-content: normal;
+   /* Works with Wraping */
+   gap: 8px;
+   /* Gap */
+   height: 100%;
 }
 
-.navbar-top-left{
-  border-color: rgb(9, 255, 0);
-  border-style: solid;
-    /* Display flex */
-      display: flex;
-      /* Flex Direction */
-      flex-direction: row;
-      /* Axe direction */
-      justify-content: flex-start;
-      /* Main axes */
-      align-items: start;
-      /* Cross axes */
-      flex-wrap: nowrap;
-      /* Warpping */
-      align-content: normal;
-      /* Works with Wraping */
-      gap: 8px;
-      /* Gap */
+.logo {
+   /* 1st value grow,2nd how fast it shrinks, 3rd pixel ovveride */
+   flex: auto;
+   align-self: center;
+   /* Ovveride pos */
+   max-width: 32px;
+   max-height: 32px;
 }
 
-.logo{
-    /* 1st value grow,2nd how fast it shrinks, 3rd pixel ovveride */
-    flex:auto ;
-    align-self: center;
-    /* Ovveride pos */
-    max-width: 32px;
-    max-height: 32px;
+.logo-text {
+   /* 1st value grow,2nd how fast it shrinks, 3rd pixel ovveride */
+   flex: auto;
+   align-self: center;
+   /* Ovveride pos */
 }
 
-.logo-text
-{
-/* 1st value grow,2nd how fast it shrinks, 3rd pixel ovveride */
-  flex: auto;
-  align-self: center;
-  /* Ovveride pos */
-
+.navbar-top-right {
+   border-color: red;
+   border-style: solid;
+   /* 1st value grow,2nd how fast it shrinks, 3rd pixel ovveride */
+   flex: auto;
+   align-self: center;
+   /* Ovveride pos */
 }
 
-.navbar-center{
-  border-color: rgb(0, 255, 157);
-  border-style: solid;
-      /* Display flex */
-        display: flex;
-        /* Flex Direction */
-        flex-direction: row;
-        /* Axe direction */
-        justify-content: flex-end;
-        /* Main axes */
-        align-items: start;
-        /* Cross axes */
-        flex-wrap: nowrap;
-        /* Warpping */
-        align-content: normal;
-        /* Works with Wraping */
-        gap: 2px;
-        /* Gap */
-     flex: auto;
-     align-self: center;   
+.about-me {
+   margin: 16px 8px 16px 8px;
 }
 
-.navbar-top-right{
-  border-color: rgb(0, 81, 255);
-  border-style: solid;
-  /* 1st value grow,2nd how fast it shrinks, 3rd pixel ovveride */
-    flex: auto;
-    align-self:center;
-    /* Ovveride pos */
+.about-me-title {
+   border-color: red;
+   border-style: solid;
 }
 
-.about-me{
-margin:16px 8px 16px 8px;
+.about-me-desc {
+   border-color: red;
+   border-style: solid;
 }
 
-.about-me-title{
-
+.register-container {
+   margin: 16px 8px 16px 8px;
+   /* Display flex */
+   display: flex;
+   /* Flex Direction */
+   flex-direction: column;
+   /* Axe direction */
+   justify-content: flex-start;
+   /* Main axes */
+   align-items: center;
+   /* Cross axes */
+   flex-wrap: nowrap;
+   /* Warpping */
+   align-content: normal;
+   /* Works with Wraping */
+   gap: 8px;
+   /* Gap */
 }
 
-.about-me-desc{
-margin-left: 25%;
+.register-header {
+   margin: 16px 8px 16px 8px;
+   border-color: red;
+   border-style: solid;
+   /* 1st value grow,2nd how fast it shrinks, 3rd pixel ovveride */
+   flex: auto;
+   align-self: center;
+   text-align: center;
+   /* Ovveride pos */
 }
 
+.register-panel {
+   /* Display flex */
+   display: flex;
+   /* Flex Direction */
+   flex-direction: column;
+   /* Axe direction */
+   justify-content: flex-start;
+   /* Main axes */
+   align-items: center;
+   /* Cross axes */
+   flex-wrap: nowrap;
+   /* Warpping */
+   align-content: normal;
+   /* Works with Wraping */
+   gap: 16px;
+   /* Gap */
+   min-width: 40%;
+   margin: 16px 8px 16px 8px;
+   background-color: #4e3c57;
+   border: #b0d7ff;
+   border-style: solid;
+   border-width: 1px;
+   border-radius: 8px;
+}
 
+.register-item {
+   /* Display flex */
+   display: flex;
+   /* Axe direction */
+   flex-direction: column;
+   /* Main axes */
+   justify-content: center;
+   /* Cross axes */
+   align-items: start;
+   /* Warpping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 16px;
+   /* width:100%;    */
+   margin: 16px 8px 16px 8px;
+}
+
+.username-header {
+}
+
+.username-input {
+}

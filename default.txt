@@ -1,8 +1,21 @@
 Colors:
-60%: #2A2130
-30%: #F5F5F5
+60%: #4E3C57 Transparent / Solid #2A2130
+30%: #white
 10%: #B0D7FF
 
+
+Shadow Style:
+
+ border-radius: 8px;
+ box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+      7px 7px 20px 0px rgba(150, 70, 70, 0.1),
+      4px 4px 5px 0px rgba(255, 255, 255, 0.1);
+   background: linear-gradient(0deg, #2a2130 0%, #4e3c57 100%);
+   border: none;
+   outline: none;
+
+
+Google Api: AIzaSyBQUuyKC1-Cfw_3-8lEkcMapxT59SM4wuA
 
 .container {
     /* Display flex */
@@ -23,7 +36,7 @@ Colors:
 }
 
 .item{
-  /* 1st value grow,2nd how fast it shrinks, 3rd pixel ovveride */  
+  /* 1st 'VALUE' grow,2nd how fast it shrinks, 3rd pixel ovveride */  
   flex: ;
   align-self: ; /* Ovveride pos */
 }

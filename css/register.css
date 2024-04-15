@@ -1,0 +1,85 @@
+.register-container {
+   margin: 16px 8px 16px 8px;
+   /* Display flex */
+   display: flex;
+   /* Flex Direction */
+   flex-direction: column;
+   /* Axe direction */
+   justify-content: flex-start;
+   /* Main axes */
+   align-items: center;
+   /* Cross axes */
+   flex-wrap: nowrap;
+   /* Warpping */
+   align-content: normal;
+   /* Works with Wraping */
+   gap: 8px;
+   /* Gap */
+}
+
+.register-header {
+   margin: 16px 8px 16px 8px;
+   /* 1st value grow,2nd how fast it shrinks, 3rd pixel ovveride */
+   flex: auto;
+   align-self: center;
+   text-align: center;
+   /* Ovveride pos */
+}
+
+.register-panel {
+   /* Display flex */
+   display: flex;
+   /* Flex Direction */
+   flex-direction: column;
+   /* Axe direction */
+   justify-content: flex-start;
+   /* Main axes */
+   align-items: center;
+   /* Cross axes */
+   flex-wrap: nowrap;
+   /* Warpping */
+   align-content: normal;
+   /* Works with Wraping */
+   gap: 16px;
+   /* Gap */
+   min-width: 40%;
+   margin: 16px 8px 16px 8px;
+   border-radius: 8px;
+   background-color: #4e3c57;
+   padding-left: 8px;
+   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+      7px 7px 20px 0px rgba(150, 70, 70, 0.1),
+      4px 4px 5px 0px rgba(255, 255, 255, 0.1);
+   background: linear-gradient(0deg, #2a2130 0%, #4e3c57 100%);
+   border: none;
+   outline: none;
+}
+
+.register-item {
+   /* Display flex */
+   display: flex;
+   /* Axe direction */
+   flex-direction: column;
+   /* Main axes */
+   justify-content: center;
+   /* Cross axes */
+   align-items: start;
+   /* Warpping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 16px;
+   /* width:100%;    */
+   margin: 16px 8px 16px 8px;
+}
+
+.username-header {
+}
+
+.username-input {
+}
+
+.register-button {
+   margin: 16px 8px 16px 8px;
+}
