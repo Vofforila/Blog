@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/elements.css">
+  <link rel="stylesheet" type="text/css" href="/css/about.css">
   <title>vofforila.com</title>
 </head>
 
@@ -16,13 +17,7 @@
         <img src="/img/default.png" alt="Error" class="logo">
         <p class="logo-text big">AestheticStudio</p>
       </div>
-      <div class="navbar-center">
-        <div class="nav-button1"><button class="mediumbutton">Button</button></div>
-        <div class=" nav-button2"><button class="mediumbutton">Button</button></div>
-        <div class="nav-button3"><button class="mediumbutton">Button</button></div>
-      </div>
       <div class="navbar-top-right">
-        <!-- <p>Top Right Content</p> -->
         <button class="mediumbutton" onclick="location.href = '/html/login.html'">Login</button>
         <button class="mediumbutton" onclick="location.href = '/html/register.html'">Register</button>
       </div>
@@ -35,14 +30,28 @@
         <p class="big">Lorem, ipsum dotiae a corrupti tempore numquam labore aliquid tenetur illo, excepturi
           animi, quisquam modi nam corporis vel voluptate quas alias sunt!</p>
       </div>
+      <div class="scan-me-holder">
+        <p class="big scan-me">Scan Me</p>
+      </div>
+      <div class="qr-code-holder">
+        <image src="/img/default.png" class="qr-code" alt="error"></image>
+      </div>
+      <div class="scan-me-holder">
+        <p class="big">Curs Valutar</p>
+      </div>
+      <div id="exchange-holder">
+      </div>
       <div class="contact">
         <div id="map"></div>
       </div>
     </div>
   </main>
-  <script src="/javascript/googlemap.js"></script>
+
+  <script src="/javascript/exchange.js"></script>
+  <!-- <script src="/javascript/weather.js"></script> -->
+  <script src="/javascript/google.js"></script>
   <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQUuyKC1-Cfw_3-8lEkcMapxT59SM4wuA&loading=async&callback=initMap"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH4ohOfS57zUqiG6k3-LERsGCfZ8H6eD0&loading=async&callback=initMap"
     async defer></script>
 </body>
 

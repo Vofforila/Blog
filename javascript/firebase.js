@@ -1,69 +1,107 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 import {
    getAuth,
    createUserWithEmailAndPassword,
    signInWithEmailAndPassword,
    onAuthStateChanged,
-} from "firebase/auth";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+import { firestore } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+import {
+   initializeAppCheck,
+   ReCaptchaEnterpriseProvider,
+} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app-check.js";
+import firebase from "firebase/compat/app";
 
-// TODO: Replace the following with your app's Firebase project configuration
-// See: https://firebase.google.com/docs/web/learn-more#config-object
 const firebaseConfig = {
-   apiKey: "AIzaSyC300ebq4PLrPsCPTtEt2wNKa11GDi22ps",
-   authDomain: "blog-f490d.firebaseapp.com",
-   projectId: "blog-f490d",
-   storageBucket: "blog-f490d.appspot.com",
-   messagingSenderId: "736374436760",
-   appId: "1:736374436760:web:5d5f1fb00268a8a502f1ed",
+   apiKey: "AIzaSyAIvQKBeruvLdV74ySuHFPWHIgWw9uzy5A",
+   authDomain: "projects-175f8.firebaseapp.com",
+   databaseURL:
+      "https://projects-175f8-default-rtdb.europe-west1.firebasedatabase.app",
+   projectId: "projects-175f8",
+   storageBucket: "projects-175f8.appspot.com",
+   messagingSenderId: "481400981162",
+   appId: "1:481400981162:web:383fb53435eedc2568f2d3",
+   measurementId: "G-MF9LGR4C33",
 };
 
 const app = initializeApp(firebaseConfig);
 
-const db = getFirestore(app);
+///
+/// AppCheck
+///
+
+const appCheck = initializeAppCheck(app, {
+   provider: new ReCaptchaEnterpriseProvider(
+      "6LdICMQpAAAAAA31_vb4VWlqjnrKHnrbi1agvCBB"
+   ),
+   isTokenAutoRefreshEnabled: true,
+});
+
+app.use(appCheck.middleware());
+
+///
+/// FireAuth
+///
+
+const currentURL = window.location.href;
+const parts = currentURL.split("/"); // Split the URL by '/'
+let lastPart = parts[parts.length - 1]; // Get the last part
+
+// Remove the .html extension if it exists
+if (lastPart.endsWith(".html")) {
+   lastPart = lastPart.slice(0, -5);
+}
+
+if (lastPart == "register") {
+   const registerButton = document.getElementById("register-button");
+   registerButton.addEventListener("click", Register);
+} else if (lastPart == "login") {
+   const loginButton = document.getElementById("login-button");
+
+   loginButton.addEventListener("click", Login);
+} else if (lastPart == "register") {
+}
+
 const auth = getAuth(app);
 
-void SignUp();
-{
-   var email = document.getElementsByClassName("register-email");
-   var username = document.getElementsByClassName("register-username");
-   var password = document.getElementsByClassName("password-register");
-   createUserWithEmailAndPassword(auth)
+function Register() {
+   var email = document.getElementById("register-email").value;
+   var username = document.getElementById("register-username").value;
+   var password = document.getElementById("register-password").value;
+   console.log(email + username + password);
+   createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-         username = userCredential.user;
+         const username = userCredential.user;
       })
       .catch((error) => {
          const errorCode = error.code;
          const errorMessage = error.message;
+         console.log(errorCode + "/n" + errorMessage);
       });
 }
 
-// Add a new document in collection "cities"
-await setDoc(doc(db, "cities", "LA"), {
-   name: "Los Angeles",
-   state: "CA",
-   country: "USA",
-});
-
-signInWithEmailAndPassword(auth, email, password)
-   .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      // ...
-   })
-   .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-   });
+function Login() {
+   var email = document.getElementById("login-email").value;
+   var password = document.getElementById("login-password").value;
+   signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+         const username = userCredential.user;
+         window.location.href = "/html/index.html";
+      })
+      .catch((error) => {
+         const errorCode = error.code;
+         const errorMessage = error.message;
+         console.log(errorCode + "/n" + errorMessage);
+      });
+}
 
 onAuthStateChanged(auth, (user) => {
    if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/auth.user
       const uid = user.uid;
-      // ...
+      console.log("Login");
    } else {
-      // User is signed out
-      // ...
+      console.log("LogOut");
    }
 });

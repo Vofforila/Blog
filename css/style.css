@@ -35,8 +35,6 @@ body {
 }
 
 .navbar-top-left {
-   border-color: red;
-   border-style: solid;
    /* Display flex */
    display: flex;
    /* Flex Direction */
@@ -72,38 +70,19 @@ body {
 }
 
 .navbar-top-right {
-   border-color: red;
-   border-style: solid;
    /* 1st value grow,2nd how fast it shrinks, 3rd pixel ovveride */
    flex: auto;
    align-self: center;
    /* Ovveride pos */
-}
 
-.about-me {
-   margin: 16px 8px 16px 8px;
-}
-
-.about-me-title {
-   border-color: red;
-   border-style: solid;
-}
-
-.about-me-desc {
-   border-color: red;
-   border-style: solid;
-}
-
-.register-container {
-   margin: 16px 8px 16px 8px;
    /* Display flex */
    display: flex;
    /* Flex Direction */
-   flex-direction: column;
+   flex-direction: row;
    /* Axe direction */
-   justify-content: flex-start;
+   justify-content: flex-end;
    /* Main axes */
-   align-items: center;
+   align-items: end;
    /* Cross axes */
    flex-wrap: nowrap;
    /* Warpping */
@@ -111,65 +90,5 @@ body {
    /* Works with Wraping */
    gap: 8px;
    /* Gap */
-}
-
-.register-header {
-   margin: 16px 8px 16px 8px;
-   border-color: red;
-   border-style: solid;
-   /* 1st value grow,2nd how fast it shrinks, 3rd pixel ovveride */
-   flex: auto;
-   align-self: center;
-   text-align: center;
-   /* Ovveride pos */
-}
-
-.register-panel {
-   /* Display flex */
-   display: flex;
-   /* Flex Direction */
-   flex-direction: column;
-   /* Axe direction */
-   justify-content: flex-start;
-   /* Main axes */
-   align-items: center;
-   /* Cross axes */
-   flex-wrap: nowrap;
-   /* Warpping */
-   align-content: normal;
-   /* Works with Wraping */
-   gap: 16px;
-   /* Gap */
-   min-width: 40%;
-   margin: 16px 8px 16px 8px;
-   background-color: #4e3c57;
-   border: #b0d7ff;
-   border-style: solid;
-   border-width: 1px;
-   border-radius: 8px;
-}
-
-.register-item {
-   /* Display flex */
-   display: flex;
-   /* Axe direction */
-   flex-direction: column;
-   /* Main axes */
-   justify-content: center;
-   /* Cross axes */
-   align-items: start;
-   /* Warpping */
-   flex-wrap: nowrap;
-   /* Works with Wraping */
-   align-content: normal;
-   /* Gap */
-   gap: 16px;
-   /* width:100%;    */
-   margin: 16px 8px 16px 8px;
-}
-
-.username-header {
-}
-
-.username-input {
+   height: 100%;
 }
