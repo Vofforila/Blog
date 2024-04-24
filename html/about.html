@@ -7,6 +7,7 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/elements.css">
   <link rel="stylesheet" type="text/css" href="/css/about.css">
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIvQKBeruvLdV74ySuHFPWHIgWw9uzy5A"></script>
   <title>vofforila.com</title>
 </head>
 
@@ -34,25 +35,24 @@
         <p class="big scan-me">Scan Me</p>
       </div>
       <div class="qr-code-holder">
-        <image src="/img/default.png" class="qr-code" alt="error"></image>
+        <image src="/img/DescriptionQRCode.png" class="qr-code" alt="error"></image>
       </div>
       <div class="scan-me-holder">
-        <p class="big">Curs Valutar</p>
+        <p class="big scan-me">Weather</p>
       </div>
+      <div id="weather-holder"></div>
       <div id="exchange-holder">
       </div>
       <div class="contact">
+        </pre>
         <div id="map"></div>
+        <pre></pre>
       </div>
     </div>
   </main>
-
   <script src="/javascript/exchange.js"></script>
-  <!-- <script src="/javascript/weather.js"></script> -->
+  <script src="/javascript/weather.js"></script>
   <script src="/javascript/google.js"></script>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH4ohOfS57zUqiG6k3-LERsGCfZ8H6eD0&loading=async&callback=initMap"
-    async defer></script>
 </body>
 
 </html>

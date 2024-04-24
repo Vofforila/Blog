@@ -3,13 +3,13 @@
     "public": ".",
     "ignore": [
       "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "**/default/**"
     ],
     "rewrites": [
       {
         "source": "**",
-        "destination": "/html/index.html"
+        "destination": "/html/login.html"
       }
     ]
   }

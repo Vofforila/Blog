@@ -5,12 +5,10 @@ import {
    signInWithEmailAndPassword,
    onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-import { firestore } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 import {
    initializeAppCheck,
    ReCaptchaEnterpriseProvider,
 } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app-check.js";
-import firebase from "firebase/compat/app";
 
 const firebaseConfig = {
    apiKey: "AIzaSyAIvQKBeruvLdV74ySuHFPWHIgWw9uzy5A",
@@ -27,19 +25,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 ///
-/// AppCheck
-///
-
-const appCheck = initializeAppCheck(app, {
-   provider: new ReCaptchaEnterpriseProvider(
-      "6LdICMQpAAAAAA31_vb4VWlqjnrKHnrbi1agvCBB"
-   ),
-   isTokenAutoRefreshEnabled: true,
-});
-
-app.use(appCheck.middleware());
-
-///
 /// FireAuth
 ///
 
@@ -52,12 +37,13 @@ if (lastPart.endsWith(".html")) {
    lastPart = lastPart.slice(0, -5);
 }
 
+console.log(lastPart);
+
 if (lastPart == "register") {
    const registerButton = document.getElementById("register-button");
    registerButton.addEventListener("click", Register);
 } else if (lastPart == "login") {
    const loginButton = document.getElementById("login-button");
-
    loginButton.addEventListener("click", Login);
 } else if (lastPart == "register") {
 }
@@ -81,12 +67,14 @@ function Register() {
 }
 
 function Login() {
+   console.log("Login");
    var email = document.getElementById("login-email").value;
    var password = document.getElementById("login-password").value;
    signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
          const username = userCredential.user;
-         window.location.href = "/html/index.html";
+         window.location.href = "/html/about.html";
+         console.log("Login");
       })
       .catch((error) => {
          const errorCode = error.code;
@@ -94,14 +82,3 @@ function Login() {
          console.log(errorCode + "/n" + errorMessage);
       });
 }
-
-onAuthStateChanged(auth, (user) => {
-   if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/auth.user
-      const uid = user.uid;
-      console.log("Login");
-   } else {
-      console.log("LogOut");
-   }
-});

@@ -1,0 +1,43 @@
+.contact {
+   margin: 16px 8px 16px 8px;
+   /* Display flex */
+   display: flex;
+   /* Flex Direction */
+   flex-direction: column;
+   /* Axe direction */
+   justify-content: center;
+   /* Main axes */
+   align-items: normal;
+   /* Cross axes */
+   flex-wrap: nowrap;
+   /* Warpping */
+   align-content: normal;
+   /* Works with Wraping */
+   gap: 8px;
+   /* Gap */
+}
+
+.contact-title {
+   /* 1st 'VALUE' grow,2nd how fast it shrinks, 3rd pixel ovveride */
+   flex: auto;
+   align-self: center; /* Ovveride pos */
+}
+
+.contact-form {
+   margin: 16px 8px 16px 8px;
+   /* Display flex */
+   display: flex;
+   /* Flex Direction */
+   flex-direction: column;
+   /* Axe direction */
+   justify-content: center;
+   /* Main axes */
+   align-items: normal;
+   /* Cross axes */
+   flex-wrap: nowrap;
+   /* Warpping */
+   align-content: normal;
+   /* Works with Wraping */
+   gap: 8px;
+   /* Gap */
+}

@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy"
+    content="script-src 'self' https://www.gstatic.com https://www.google.com/recaptcha/;">
+
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/elements.css">
   <link rel="stylesheet" type="text/css" href="/css/register.css">
@@ -18,11 +21,11 @@
         <p class="logo-text big">AestheticStudio</p>
       </div>
       <div class="navbar-top-right">
-        <button class="mediumbutton" onclick="location.href = '/html/login.html'">Login</button>
-        <button class="mediumbutton" onclick="location.href = '/html/register.html'">Register</button>
+        <button class="mediumbutton login-nav">Login</button>
+        <button class=" mediumbutton register-nav">Register</button>
       </div>
     </div>
-    <div class="register-container">
+    <div class=" register-container">
       <div class="register-header title">
         <p>Login</p>
       </div>
@@ -46,6 +49,7 @@
 
   </main>
   <script type="module" src="/javascript/firebase.js"></script>
+  <script src="/javascript/navigation.js"></script>
 </body>
 
 </html>

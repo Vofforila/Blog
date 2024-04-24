@@ -33,6 +33,13 @@
    /* 1st 'VALUE' grow,2nd how fast it shrinks, 3rd pixel ovveride */
    flex: auto;
    align-self: center; /* Ovveride pos */
+   height: 150px;
+}
+
+.qr-code {
+   height: 150px;
+   width: 100%;
+   border: none;
 }
 
 #exchange-holder {
