@@ -1,8 +1,10 @@
 /* Text */
 p,
-a {
+a,
+del {
    color: #f5f5f5;
    margin: 0px;
+   font-weight: 400;
 }
 
 .smallbutton {
@@ -94,6 +96,11 @@ a {
 
 /* Input Field */
 
+input[type="checkbox"] {
+   width: 24px;
+   height: 24px;
+}
+
 input::placeholder {
    color: #b0d7ff;
    font-size: 24px;
@@ -101,7 +108,7 @@ input::placeholder {
    outline: none;
 }
 
-input {
+input[type="input"] {
    width: 400px;
    height: 40px;
    font-size: 24px;

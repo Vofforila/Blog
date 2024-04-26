@@ -42,7 +42,9 @@ console.log(lastPart);
 if (lastPart == "register") {
    const registerButton = document.getElementById("register-button");
    registerButton.addEventListener("click", Register);
-} else if (lastPart == "login") {
+} else if (lastPart == "login" || lastPart == "") {
+   console.log(lastPart);
+   console.log("Wrok");
    const loginButton = document.getElementById("login-button");
    loginButton.addEventListener("click", Login);
 } else if (lastPart == "register") {
@@ -82,3 +84,24 @@ function Login() {
          console.log(errorCode + "/n" + errorMessage);
       });
 }
+
+///
+/// Firestore
+///
+
+// Get a reference to the Firestore database service
+const db = firebase.firestore();
+
+// Example: Add a document to a collection
+db.collection("users")
+   .add({
+      first: "Ada",
+      last: "Lovelace",
+      born: 1815,
+   })
+   .then((docRef) => {
+      console.log("Document written with ID: ", docRef.id);
+   })
+   .catch((error) => {
+      console.erro   r("Error adding document: ", error);
+   });

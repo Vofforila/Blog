@@ -1,11 +1,18 @@
+Google Api: AIzaSyBQUuyKC1-Cfw_3-8lEkcMapxT59SM4wuA
+
 Colors:
 60%: #4E3C57 Transparent / Solid #2A2130
 30%: #white
 10%: #B0D7FF
 
+8px 16px 24px 32px
+
+<p> - small medium big heading title 
+<p> - smallweight mediumweight bigweight
+<button> - smallbutton mediumbutton bigbutton
+<button> - button1(span) button2
 
 Shadow Style:
-
  border-radius: 8px;
  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
       7px 7px 20px 0px rgba(150, 70, 70, 0.1),
@@ -14,29 +21,24 @@ Shadow Style:
    border: none;
    outline: none;
 
+   display: flex;
+   /* Main axes */
+   flex-direction: column;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: normal;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   margin: 16px 8px 16px 8px;
 
-Google Api: AIzaSyBQUuyKC1-Cfw_3-8lEkcMapxT59SM4wuA
+  1 - grow,
+  2 - how fast it shrinks
+  3 - pixel ovveride 
 
-.container {
-    /* Display flex */
-    display: flex;
-    /* Flex Direction */
-    flex-direction: ;
-    /* Axe direction */
-    justify-content: ;
-    /* Main axes */
-    align-items: ;
-    /* Cross axes */
-    flex-wrap: ;
-    /* Warpping */
-    align-content: ;
-    /* Works with Wraping */
-    gap: ;
-    /* Gap */
-}
-
-.item{
-  /* 1st 'VALUE' grow,2nd how fast it shrinks, 3rd pixel ovveride */  
   flex: ;
-  align-self: ; /* Ovveride pos */
-}
+  align-self: center;

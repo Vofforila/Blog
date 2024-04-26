@@ -1,0 +1,175 @@
+div {
+   border: solid;
+   border-color: red;
+}
+
+.about-us {
+   display: flex;
+   /* Main axes */
+   flex-direction: column;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: normal;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   margin: 16px 8px 16px 8px;
+}
+
+.about-us-title {
+   flex: 1;
+   align-self: center;
+}
+
+.product-container {
+   display: flex;
+   /* Main axes */
+   flex-direction: column;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: normal;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   margin: 16px 8px 16px 8px;
+}
+
+.product-navbar {
+   display: flex;
+   /* Main axes */
+   flex-direction: row;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: center;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   margin: 16px 8px 16px 8px;
+}
+
+.sale {
+   display: flex;
+   /* Main axes */
+   flex-direction: row;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: center;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   margin: 16px 8px 16px 8px;
+   flex: 1;
+}
+
+.product-list {
+   display: flex;
+   /* Main axes */
+   flex-direction: row;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: flex-start;
+   /* Wrapping */
+   flex-wrap: wrap;
+   /* Works with Wraping */
+   align-content: center;
+   /* Gap */
+   gap: 8px;
+   margin: 16px 8px 16px 8px;
+}
+
+.product {
+   display: flex;
+   /* Main axes */
+   flex-direction: column;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: normal;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   margin: 16px 8px 16px 8px;
+   flex: 1;
+   align-self: center;
+}
+
+.product-name {
+   flex: 1;
+   align-self: center;
+}
+
+.product-image-container {
+   flex: 1;
+   align-self: center;
+}
+
+.product-image {
+   width: 240px;
+   height: 240px;
+}
+
+.product-image-sale {
+   position: relative;
+   bottom: 120px;
+}
+
+.product-price {
+   display: flex;
+   /* Main axes */
+   flex-direction: column;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: normal;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   margin: 0px 16px 0px 16px;
+}
+
+.product-price-container {
+   display: flex;
+   /* Main axes */
+   flex-direction: row;
+   /* Second axes */
+   justify-content: center;
+   /* Alighment */
+   align-items: normal;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   /* margin: 16px 8px 16px 8px; */
+}
+
+#add-product-button {
+   width: 7em;
+   height: auto;
+   flex: 1;
+   align-self: center;
+}
