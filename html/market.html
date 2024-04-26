@@ -45,7 +45,7 @@
         </div>
         <button class="basket-button" type="button">Basket</button>
       </div>
-      <div class="product-list">
+      <div class="product-list-container" id="product-list">
         <div class="product">
           <div class="product-name">
             <p class="big mediumweight">Nume Produs</p>
@@ -64,42 +64,6 @@
             <button type="button" class="bigbutton add-product-button">Add to Cart</button>
           </div>
         </div>
-        <div class="product">
-          <div class="product-name">
-            <p class="big mediumweight">Nume Produs</p>
-          </div>
-          <div class="product-image-container">
-            <img class="product-image" src="/default/default.png" alt="error">
-            <div class="product-image-sale">
-              <p>Super Pret</p>
-            </div>
-          </div>
-          <div class="product-price">
-            <div class="product-price-container">
-              <p class="big product-price-text">20.00 $ </p>
-              <p class="big product-price-text"><del>40.00 $</del></p>
-            </div>
-            <button type="button" class="bigbutton" id="add-product-button">Add to Cart</button>
-          </div>
-        </div>
-        <div class="product">
-          <div class="product-name">
-            <p class="big mediumweight">Nume Produs</p>
-          </div>
-          <div class="product-image-container">
-            <img class="product-image" src="/default/default.png" alt="error">
-            <div class="product-image-sale">
-              <p class="big mediumweight">Super Pret</p>
-            </div>
-          </div>
-          <div class="product-price">
-            <div class="product-price-container">
-              <p class="big product-price-text">20.00 $ </p>
-              <p class="big product-price-text"><del>40.00 $</del></p>
-            </div>
-            <button type="button" class="bigbutton" id="add-product-button">Add to Cart</button>
-          </div>
-        </div>
       </div>
     </div>
     <div class="contact">
@@ -114,6 +78,7 @@
       </div>
     </div>
   </main>
+  <script type="module" src="/javascript/firebase.js"></script>
 </body>
 
 </html>

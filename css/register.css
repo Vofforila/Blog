@@ -74,12 +74,10 @@
    margin: 16px 8px 16px 8px;
 }
 
-.username-header {
+#register-button {
+   margin: 16px 8px 16px 8px;
 }
 
-.username-input {
-}
-
-.register-button {
+#login-button {
    margin: 16px 8px 16px 8px;
 }

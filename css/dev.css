@@ -1,0 +1,25 @@
+.product-title {
+   align-content: center;
+}
+
+.dev-container {
+   display: flex;
+   /* Main axes */
+   flex-direction: column;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: normal;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   margin: 16px 8px 16px 8px;
+}
+
+#product-button {
+   flex: 1;
+   align-self: center;
+}

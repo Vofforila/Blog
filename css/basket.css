@@ -1,0 +1,99 @@
+.product-list {
+   display: flex;
+   /* Main axes */
+   flex-direction: column;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: normal;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   margin: 16px 8px 16px 8px;
+}
+
+.product {
+   display: flex;
+   /* Main axes */
+   flex-direction: row;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: normal;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   margin: 16px 8px 16px 8px;
+}
+
+.produc-image-container {
+   flex: 1;
+   align-self: center;
+}
+
+.product-image {
+   width: 100px;
+   height: 100px;
+}
+.product-details {
+   display: flex;
+   /* Main axes */
+   flex-direction: column;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: normal;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   margin: 16px 8px 16px 8px;
+   flex: 1;
+   align-self: center;
+}
+
+.product-name {
+   align-self: flex-start;
+}
+
+.product-price-text {
+   align-self: flex-end;
+}
+
+.remove-product-button {
+   align-self: center;
+   margin: 16px 8px 16px 8px;
+}
+
+.pay-container {
+   display: flex;
+   /* Main axes */
+   flex-direction: column;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: normal;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   margin: 16px 8px 16px 8px;
+}
+
+#total-price {
+   align-self: center;
+}
+
+#buy-button {
+   align-self: center;
+}

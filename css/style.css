@@ -51,6 +51,7 @@ body {
    gap: 8px;
    /* Gap */
    height: 100%;
+   align-self: center;
 }
 
 .logo {

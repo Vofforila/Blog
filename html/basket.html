@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/elements.css">
+  <link rel="stylesheet" type="text/css" href="/css/basket.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <main class="main">
+    <div class="navbar">
+      <div class="navbar-top-left">
+        <img src="/default/default.png" alt="Error" class="logo">
+        <p class="logo-text big">Paul Berciu</p>
+      </div>
+      <div class="navbar-top-right">
+        <button type="button" class="mediumbutton" onclick="location.href = '/html/login.html'">Login</button>
+        <button type="button" class="mediumbutton" onclick="location.href = '/html/register.html'">Register</button>
+        <button type="button" class="mediumbutton" onclick="location.href = '/html/market.html'">Market</button>
+      </div>
+    </div>
+    <div class="product-list" id="product-list"></div>
+    <div class="pay-container">
+      <p class="medium" id="total-price">Total: </p>
+      <button type="button" class="bigbutton" id="buy-button">Buy</button>
+    </div>
+  </main>
+  <script type="module" src="/javascript/firebase.js"></script>
+</body>
+
+</html>
