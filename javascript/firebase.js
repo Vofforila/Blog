@@ -20,6 +20,8 @@ import {
    where,
    getDocs,
    deleteDoc,
+   updateDoc,
+   collectionGroup,
 } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 import {
    getStorage,
@@ -68,6 +70,12 @@ if (lastPart == "register") {
       AddProductImage();
    });
 } else if (lastPart == "market") {
+   const dropdown = document.getElementById("filter");
+   dropdown.addEventListener("change", LoadProducts);
+   const checkbox = document.getElementById("sale-filter");
+   checkbox.addEventListener("change", LoadProducts);
+
+   await LoadMarker();
    LoadProducts();
 } else if (lastPart == "basket") {
    LoadBasket();
@@ -98,7 +106,6 @@ function Register() {
 var currentEmail;
 
 function Login() {
-   console.log("Login");
    var email = document.getElementById("login-email").value;
    var password = document.getElementById("login-password").value;
    signInWithEmailAndPassword(auth, email, password)
@@ -132,11 +139,28 @@ async function AddProduct() {
       new_price = product_price - product_sale_price;
    }
 
-   const docRef = doc(db, "produse_blog", product_type).withConverter(
+   const docRef1 = doc(db, "type", product_type);
+
+   const docSnap = await getDoc(docRef1);
+
+   if (docSnap.exists()) {
+      let type = docSnap.data();
+      type.count++;
+      await updateDoc(docRef1, type);
+   } else {
+      await setDoc(docRef1, {
+         count: 0,
+      });
+   }
+
+   const docRef2 = doc(db, product_type, product_name).withConverter(
       productConverter
    );
    try {
-      await setDoc(docRef, new Product(product_name, product_price, new_price));
+      await setDoc(
+         docRef2,
+         new Product(product_name, product_price, new_price)
+      );
    } catch (e) {
       console.error("Error document: ", e);
    }
@@ -153,27 +177,63 @@ function AddProductImage() {
 
    const storage = getStorage(app);
 
-   const imageLocation = "produse_blog/" + product_name;
+   const imageLocation = "products/" + product_name;
    const imgRef = ref(storage, imageLocation);
-
-   console.log(storage);
 
    uploadBytes(imgRef, file).then((snapshop) => {
       console.log("Uploaded Photo");
    });
 }
 
+async function LoadMarker() {
+   const db = getFirestore(app);
+   const filter = document.getElementById("filter");
+
+   const q1 = query(collection(db, "type"));
+
+   const querySnapshop1 = await getDocs(q1);
+
+   querySnapshop1.forEach((type) => {
+      const option = document.createElement("option");
+      const option_text = document.createTextNode(
+         capitalizeFirstLetter(type.id)
+      );
+      option.appendChild(option_text);
+      option.value = type.id;
+      filter.appendChild(option);
+   });
+}
+
 async function LoadProducts() {
    const db = getFirestore(app);
+   const filter = document.getElementById("filter");
+   const sale_filter = document.getElementById("sale-filter");
 
-   const q = query(collection(db, "produse_blog"));
-   const querySnapshop = await getDocs(q);
-   querySnapshop.forEach((doc) => {
-      console.log(doc.id, "=>", doc.data());
+   const docRef = doc(db, "type", filter.value);
+   const docSnap = await getDoc(docRef);
+
+   const filter_number = document.getElementById("filter-number");
+   filter_number.innerHTML = "";
+   const filter_number_text = document.createTextNode(
+      "Found: " + docSnap.data().count
+   );
+   filter_number.appendChild(filter_number_text);
+
+   const product_list = document.getElementById("product-list");
+   product_list.innerHTML = "";
+   const q3 = query(collection(db, filter.value));
+   const querySnapshop3 = await getDocs(q3);
+   querySnapshop3.forEach((_productData) => {
+      let _product = _productData.data();
+      if (sale_filter.checked == true && _product.sale == 0) {
+         return;
+      }
 
       const storage = getStorage();
-      const imageLocation = "produse_blog/" + doc.data().name;
+      const imageLocation = "products/" + _product.name;
       const imageRef = ref(storage, imageLocation);
+
+      _product.name = capitalizeFirstLetter(_product.name);
 
       getDownloadURL(imageRef)
          .then((url) => {
@@ -185,7 +245,6 @@ async function LoadProducts() {
             xhr.open("GET", url);
             xhr.send();
 
-            const product_list = document.getElementById("product-list");
             product_list.classList.add("product-list-container");
 
             const product = document.createElement("div");
@@ -195,7 +254,7 @@ async function LoadProducts() {
             product_name_containet.classList.add("product-name");
             const product_name = document.createElement("p");
             product_name.classList.add("big", "mediumweight");
-            product_name.textContent = doc.data().name;
+            product_name.textContent = _product.name;
             product_name_containet.appendChild(product_name);
             product.appendChild(product_name_containet);
 
@@ -208,7 +267,11 @@ async function LoadProducts() {
             const product_image_sale = document.createElement("div");
             product_image_sale.classList.add("product-image-sale");
             const product_image_sale_text = document.createElement("p");
-            product_image_sale_text.textContent = "Super Sale!";
+            if (_product.sale != 0) {
+               product_image_sale_text.textContent = "Super Sale!";
+            } else {
+               product_image_sale_text.textContent = "";
+            }
             product_image_container.appendChild(product_image);
             product_image_container.appendChild(product_image_sale);
             product_image_sale.appendChild(product_image_sale_text);
@@ -219,22 +282,27 @@ async function LoadProducts() {
             const product_price_container = document.createElement("div");
             product_price_container.classList.add("product-price-container");
             const product_price_text = document.createElement("p");
-            product_price_text.textContent = doc.data().price + " €";
+            product_price_text.textContent = _product.price + " €";
             product_price_text.classList.add("big", "product-price-text");
             const product_sale_price_text = document.createElement("p");
             product_sale_price_text.classList.add("big", "product-price-text");
             const product_sale_price_text_del = document.createElement("del");
-            const del_node = document.createTextNode(doc.data().sale + " €");
+            const del_node = document.createTextNode(_product.sale + " €");
             product_sale_price_text_del.appendChild(del_node);
             product_sale_price_text.appendChild(product_sale_price_text_del);
             const add_product_button = document.createElement("button");
-            add_product_button.classList.add("bigbutton", "add-product-button");
-            add_product_button.id = doc.data().name;
+            add_product_button.classList.add(
+               "bigbutton",
+               "add-product-button",
+               "button1"
+            );
+            add_product_button.id =
+               filter.value + "/" + _product.name.toLowerCase();
             add_product_button.type = "button";
             add_product_button.addEventListener("click", AddToBasket);
-            const add_product_button_text =
-               document.createTextNode("Add to Cart");
-            add_product_button.appendChild(add_product_button_text);
+            const span = document.createElement("span");
+            span.innerHTML = "Add to Cart";
+            add_product_button.appendChild(span);
             product_price_container.appendChild(product_price_text);
             product_price_container.appendChild(product_sale_price_text);
             product_price.appendChild(product_price_container);
@@ -253,25 +321,23 @@ async function AddToBasket() {
    const db = getFirestore(app);
    currentEmail = "polberci@yahoo.ro";
 
-   const docRef = doc(db, "produse_blog", this.id);
+   const loc = this.id.split("/");
+   const docRef = doc(db, loc[0], loc[1]);
    const productSnap = await getDoc(docRef);
 
    if (productSnap.exists()) {
-      const db = getFirestore(app);
-      const docRef = doc(db, currentEmail, this.id);
+      const docRef = doc(db, currentEmail, loc[1]);
       const accountSnap = await getDoc(docRef);
 
       if (accountSnap.exists()) {
          let accountProduct = accountSnap.data();
          accountProduct.count++;
-
-         await setDoc(doc(db, currentEmail, this.id), accountProduct);
+         await setDoc(doc(db, currentEmail, loc[1]), accountProduct);
          return;
       }
       let product = productSnap.data();
-      product.count = 0;
-      console.log(product.count);
-      await setDoc(doc(db, currentEmail, this.id), product);
+      product.count = 1;
+      await setDoc(doc(db, currentEmail, loc[1]), product);
    } else {
       console.log("No such document!");
    }
@@ -287,13 +353,11 @@ async function RemoveFromBasket() {
    if (productSnap.exists()) {
       let product = productSnap.data();
       if (product.count <= 0) {
-         console.log(this.id);
-         await deleteDoc(doc(db, currentEmail, this.id));
+         await deleteDoc(doc(db, currentEmail, loc[1]));
          LoadBasket();
          return;
       }
       product.count--;
-      console.log(product.count);
       await setDoc(doc(db, currentEmail, this.id), product);
    } else {
       console.log("No such document!");
@@ -307,12 +371,13 @@ async function LoadBasket() {
    currentEmail = "polberci@yahoo.ro";
 
    const q = query(collection(db, currentEmail));
+
+   const product_list = document.getElementById("product-list");
+   product_list.innerHTML = "";
    const querySnapshop = await getDocs(q);
    querySnapshop.forEach((doc) => {
       let accountData = doc.data();
       total = doc.data().price;
-
-      const product_list = document.getElementById("product-list");
 
       const product = document.createElement("div");
       product.classList.add("product");
@@ -330,7 +395,9 @@ async function LoadBasket() {
       product_details.classList.add("product-details");
       const product_name = document.createElement("p");
       product_name.classList.add("big", "product-price-text", "mediumweight");
-      const product_name_text = document.createTextNode(accountData.name);
+      const product_name_text = document.createTextNode(
+         capitalizeFirstLetter(accountData.name)
+      );
       product_name.appendChild(product_name_text);
       const product_price_text = document.createElement("p");
       product_price_text.classList.add("big", "product-price-text");
@@ -342,13 +409,27 @@ async function LoadBasket() {
       product_details.appendChild(product_price_text);
       product.appendChild(product_details);
 
+      const product_count_container = document.createElement("div");
+      product_count_container.classList.add("product-count-container");
+      const product_count = document.createElement("p");
+      product_count.classList.add("product-count", "big");
+      product_count.innerHTML = "Total: " + accountData.count;
+      product_count_container.appendChild(product_count);
+      product.appendChild(product_count_container);
+
       const remove_product_button = document.createElement("button");
       remove_product_button.type = "button";
-      remove_product_button.classList.add("bigbutton", "remove-product-button");
+      remove_product_button.classList.add(
+         "bigbutton",
+         "remove-product-button",
+         "button1"
+      );
       remove_product_button.id = accountData.name;
       remove_product_button.addEventListener("click", RemoveFromBasket);
-      const remove_product_button_text = document.createTextNode("Remove");
-      remove_product_button.appendChild(remove_product_button_text);
+      remove_product_button.addEventListener("click", LoadBasket);
+      const span = document.createElement("span");
+      span.innerHTML = "Remove";
+      remove_product_button.appendChild(span);
       product.appendChild(remove_product_button);
 
       product_list.appendChild(product);
@@ -385,4 +466,12 @@ class Product {
    toString() {
       return this.name + ", " + this.price + ", " + this.sale;
    }
+}
+
+///
+/// Special Functions
+///
+
+function capitalizeFirstLetter(string) {
+   return string.charAt(0).toUpperCase() + string.slice(1);
 }

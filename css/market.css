@@ -1,9 +1,12 @@
-div {
-   border: solid;
-   border-color: red;
-}
-
 .about-us {
+   border-radius: 8px;
+   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+      7px 7px 20px 0px rgba(150, 70, 70, 0.1),
+      4px 4px 5px 0px rgba(255, 255, 255, 0.1);
+   background: linear-gradient(0deg, #2a2130 0%, #4e3c57 100%);
+   border: none;
+   outline: none;
+   padding: 16px 8px 16px 8px;
    display: flex;
    /* Main axes */
    flex-direction: column;
@@ -25,7 +28,20 @@ div {
    align-self: center;
 }
 
+.about-us-description {
+   margin: 16px 32px 16px 32px;
+   text-align: center;
+}
+
 .product-container {
+   border-radius: 8px;
+   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+      7px 7px 20px 0px rgba(150, 70, 70, 0.1),
+      4px 4px 5px 0px rgba(255, 255, 255, 0.1);
+   background: linear-gradient(0deg, #2a2130 0%, #4e3c57 100%);
+   border: none;
+   padding: 16px 8px 16px 8px;
+   outline: none;
    display: flex;
    /* Main axes */
    flex-direction: column;
@@ -43,6 +59,15 @@ div {
 }
 
 .product-navbar {
+   border-radius: 8px;
+   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+      7px 7px 20px 0px rgba(150, 70, 70, 0.1),
+      4px 4px 5px 0px rgba(255, 255, 255, 0.1);
+   background: linear-gradient(0deg, #2a2130 0%, #4e3c57 100%);
+   border: none;
+   padding: 16px 8px 16px 8px;
+   outline: none;
+
    display: flex;
    /* Main axes */
    flex-direction: row;
@@ -95,6 +120,14 @@ div {
 }
 
 .product {
+   border-radius: 8px;
+   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+      7px 7px 20px 0px rgba(150, 70, 70, 0.1),
+      4px 4px 5px 0px rgba(255, 255, 255, 0.1);
+   background: linear-gradient(0deg, #2a2130 0%, #4e3c57 100%);
+   border: none;
+   outline: none;
+   padding: 16px 8px 16px 8px;
    display: flex;
    /* Main axes */
    flex-direction: column;
@@ -187,4 +220,30 @@ div {
    height: auto;
    flex: 1;
    align-self: center;
+}
+
+.contact {
+   border-radius: 8px;
+   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+      7px 7px 20px 0px rgba(150, 70, 70, 0.1),
+      4px 4px 5px 0px rgba(255, 255, 255, 0.1);
+   background: linear-gradient(0deg, #2a2130 0%, #4e3c57 100%);
+   border: none;
+   outline: none;
+   padding: 16px 8px 16px 8px;
+
+   display: flex;
+   /* Main axes */
+   flex-direction: column;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: normal;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   margin: 16px 8px 16px 8px;
 }

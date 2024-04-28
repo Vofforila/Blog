@@ -18,15 +18,35 @@
         <p class="logo-text big">Paul Berciu</p>
       </div>
       <div class="navbar-top-right">
-        <button type="button" class="mediumbutton" onclick="location.href = '/html/login.html'">Login</button>
-        <button type="button" class="mediumbutton" onclick="location.href = '/html/register.html'">Register</button>
-        <button type="button" class="mediumbutton" onclick="location.href = '/html/market.html'">Market</button>
+        <button type="button" class="mediumbutton button1"
+          onclick="location.href = '/html/login.html'"><span>Login</span></button>
+        <button type="button" class="mediumbutton button1"
+          onclick="location.href = '/html/register.html'"><span>Register</span></button>
+        <button type="button" class="mediumbutton button1"
+          onclick="location.href = '/html/market.html'"><span>Market</span></button>
       </div>
     </div>
-    <div class="product-list" id="product-list"></div>
-    <div class="pay-container">
-      <p class="medium" id="total-price">Total: </p>
-      <button type="button" class="bigbutton" id="buy-button">Buy</button>
+    <div class="basket-container">
+      <div class="basket-header">
+        <p class="title bigweight">Basket</p>
+      </div>
+      <div class="product-list" id="product-list">
+        <div class="product">
+          <div class="product-image-container"><img class="product-image" src="/default/default.png" alt="error"></div>
+          <div class="product-details">
+            <p class="big product-price-text mediumweight">calculator</p>
+            <p class="big product-price-text">200 €</p>
+          </div>
+          <div class="product-count-container">
+            <p class="product-count big">Total:</p>
+          </div>
+          <button type="button" class="bigbutton remove-product-button">Remove</button>
+        </div>
+      </div>
+      <div class="pay-container">
+        <p class="medium" id="total-price">Total: </p>
+        <button type="button" class="bigbutton" id="buy-button">Buy</button>
+      </div>
     </div>
   </main>
   <script type="module" src="/javascript/firebase.js"></script>

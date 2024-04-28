@@ -18,32 +18,41 @@
         <p class="logo-text big">Paul Berciu</p>
       </div>
       <div class="navbar-top-right">
-        <button class="mediumbutton" onclick="location.href = '/html/login.html'">Login</button>
-        <button class="mediumbutton" onclick="location.href = '/html/register.html'">Register</button>
-        <button class="mediumbutton" onclick="location.href = '/html/market.html'">Market</button>
+        <button type="button" class="mediumbutton button1"
+          onclick="location.href = '/html/login.html'"><span>Login</span></button>
+        <button type="button" class="mediumbutton button1"
+          onclick="location.href = '/html/register.html'"><span>Register</span></button>
+        <button type="button" class="mediumbutton button1"
+          onclick="location.href = '/html/market.html'"><span>Market</span></button>
       </div>
     </div>
     <div class="about-us">
-      <p class="title bigweight about-us-title">Vofforila</p>
-      <p class="medium smallweight ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis repellat
-        voluptatum nihil tempora.
-        Voluptates rerum quae vitae consequuntur voluptatum explicabo reiciendis cupiditate corrupti ducimus quibusdam,
-        quod fuga distinctio et dignissimos cumque maiores iusto! Beatae officia nisi expedita. Hic, eligendi quas!
-        Tenetur quia iste voluptates sequi temporibus magni culpa cumque velit.</p>
+      <p class="title bigweight about-us-title">Welcome to Vofforila</p>
+      <p class="medium smallweight about-us-description">your ultimate destination for all things fabulous and
+        fashionable! Dive into a
+        world of endless style possibilities as
+        you explore our curated collection of trendy apparel, chic accessories, and statement pieces that will elevate
+        your
+        wardrobe to new heights. Whether you're searching for the perfect outfit for a night out on the town or seeking
+        everyday
+        essentials with a touch of flair, Vofforila has you covered. With fast shipping, hassle-free returns, and
+        personalized
+        recommendations, shopping with us is not just a transaction—it's an experience. Join our fashion-forward
+        community today
+        and unleash your inner style icon with Vofforila!"</p>
     </div>
     <div class="product-container">
       <div class="product-navbar">
-        <select class="product-dropdown" name="products" id="select" title="products">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
-        </select>
+        <select class="product-dropdown" name="products" id="filter" title="products"></select>
+        <div class="filtered-number">
+          <p class="medium smallweight" id="filter-number">Found:</p>
+        </div>
         <div class="sale">
           <p class="medium smallweight">Sale</p>
-          <input type="checkbox" title="sale">
+          <input type="checkbox" id="sale-filter" title="sale">
         </div>
-        <button class="basket-button" type="button">Basket</button>
+        <button type="button" id="basket-button" class="mediumbutton button1"
+          onclick="location.href = '/html/basket.html'"><span>Basket</span></button>
       </div>
       <div class="product-list-container" id="product-list">
         <div class="product">
@@ -61,14 +70,15 @@
               <p class="big product-price-text">20.00 $ </p>
               <p class="big product-price-text"><del>40.00 $</del></p>
             </div>
-            <button type="button" class="bigbutton add-product-button">Add to Cart</button>
+            <button type="button" class="bigbutton add-product-button button1"><span>Add to Cart</span></button>
           </div>
         </div>
       </div>
     </div>
     <div class="contact">
+      <p class="big bigweight">Contact</p>
       <div class="contact-name">
-        <p>Vofforila</p>
+        <p>Company: Vofforila</p>
       </div>
       <div class="contact-phone">
         <p>Phone: 0740 474 941</p>

@@ -1,4 +1,33 @@
+.basket-container {
+   display: flex;
+   /* Main axes */
+   flex-direction: column;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: normal;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   margin: 16px 8px 16px 8px;
+}
+
+.basket-header {
+   align-self: center;
+}
+
 .product-list {
+   border-radius: 8px;
+   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+      7px 7px 20px 0px rgba(150, 70, 70, 0.1),
+      4px 4px 5px 0px rgba(255, 255, 255, 0.1);
+   background: linear-gradient(0deg, #2a2130 0%, #4e3c57 100%);
+   border: none;
+   outline: none;
+   padding: 16px 8px 16px 8px;
    display: flex;
    /* Main axes */
    flex-direction: column;
@@ -16,6 +45,14 @@
 }
 
 .product {
+   border-radius: 8px;
+   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+      7px 7px 20px 0px rgba(150, 70, 70, 0.1),
+      4px 4px 5px 0px rgba(255, 255, 255, 0.1);
+   background: linear-gradient(0deg, #2a2130 0%, #4e3c57 100%);
+   border: none;
+   outline: none;
+   padding: 16px 8px 16px 8px;
    display: flex;
    /* Main axes */
    flex-direction: row;
@@ -66,6 +103,10 @@
 
 .product-price-text {
    align-self: flex-end;
+}
+
+.product-count-container {
+   align-self: center;
 }
 
 .remove-product-button {

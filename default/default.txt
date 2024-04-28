@@ -20,6 +20,7 @@ Shadow Style:
    background: linear-gradient(0deg, #2a2130 0%, #4e3c57 100%);
    border: none;
    outline: none;
+   padding: 16px 8px 16px 8px;
 
    display: flex;
    /* Main axes */
