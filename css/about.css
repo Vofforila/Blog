@@ -18,14 +18,15 @@
 }
 
 .about-me-title {
-   /* 1st 'VALUE' grow,2nd how fast it shrinks, 3rd pixel ovveride */
-   flex: auto;
+   flex: 1;
    align-self: center; /* Ovveride pos */
 }
 
+.about-me-desc {
+   align-self: center;
+}
+
 .scan-me-holder {
-   /* 1st 'VALUE' grow,2nd how fast it shrinks, 3rd pixel ovveride */
-   flex: auto;
    align-self: center; /* Ovveride pos */
 }
 
@@ -38,7 +39,7 @@
 
 .qr-code {
    height: 150px;
-   width: 100%;
+   width: 150px;
    border: none;
 }
 
@@ -46,4 +47,55 @@
    /* 1st 'VALUE' grow,2nd how fast it shrinks, 3rd pixel ovveride */
    flex: auto;
    align-self: center; /* Ovveride pos */
+}
+
+.container1 {
+   display: flex;
+   /* Main axes */
+   flex-direction: row;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: normal;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   margin: 16px 8px 16px 8px;
+}
+
+.container2 {
+   display: flex;
+   /* Main axes */
+   flex-direction: column;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: normal;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   margin: 16px 8px 16px 8px;
+}
+
+.container3 {
+   display: flex;
+   /* Main axes */
+   flex-direction: column;
+   /* Second axes */
+   justify-content: flex-start;
+   /* Alighment */
+   align-items: normal;
+   /* Wrapping */
+   flex-wrap: nowrap;
+   /* Works with Wraping */
+   align-content: normal;
+   /* Gap */
+   gap: 8px;
+   margin: 16px 8px 16px 8px;
 }
