@@ -42,6 +42,9 @@ const firebaseConfig = {
    measurementId: "G-MF9LGR4C33",
 };
 
+// Get the variable value from localStorage on another page
+var currentEmail = localStorage.getItem("myVariable");
+
 const app = initializeApp(firebaseConfig);
 
 ///
@@ -74,11 +77,17 @@ if (lastPart == "register") {
    dropdown.addEventListener("change", LoadProducts);
    const checkbox = document.getElementById("sale-filter");
    checkbox.addEventListener("change", LoadProducts);
-
+   const logout = document.getElementById("logout-page-button");
+   logout.addEventListener("click", Logout);
    await LoadMarker();
    LoadProducts();
 } else if (lastPart == "basket") {
+   const logout = document.getElementById("logout-page-button");
+   logout.addEventListener("click", Logout);
    LoadBasket();
+} else if (lastPart == "about") {
+   const logout = document.getElementById("logout-page-button");
+   logout.addEventListener("click", Logout);
 }
 
 ///
@@ -95,6 +104,7 @@ function Register() {
    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
          const username = userCredential.user;
+         window.location.href = "/html/login.html";
       })
       .catch((error) => {
          const errorCode = error.code;
@@ -103,20 +113,31 @@ function Register() {
       });
 }
 
-var currentEmail;
-
 function Login() {
    var email = document.getElementById("login-email").value;
    var password = document.getElementById("login-password").value;
    signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-         currentEmail = userCredential.user.email;
+         //currentEmail = userCredential.user.email;
+         localStorage.setItem("myVariable", userCredential.user.email);
+         currentEmail = localStorage.getItem("myVariable");
          window.location.href = "/html/about.html";
       })
       .catch((error) => {
          const errorCode = error.code;
          const errorMessage = error.message;
          console.log(errorCode + "/n" + errorMessage);
+      });
+}
+
+function Logout() {
+   signOut(auth)
+      .then(() => {
+         currentEmail = "";
+         window.location.href = "/html/login.html";
+      })
+      .catch((error) => {
+         console.log(error.message);
       });
 }
 
@@ -151,7 +172,7 @@ async function AddProduct() {
       await updateDoc(docRef1, type);
    } else {
       await setDoc(docRef1, {
-         count: 0,
+         count: 1,
       });
    }
 
@@ -331,12 +352,13 @@ async function LoadProducts() {
 
 async function AddToBasket() {
    const db = getFirestore(app);
-   currentEmail = "polberci@yahoo.ro";
 
    const loc = this.id.split("/");
+   loc[1] = capitalizeEachWord(loc[1]);
    const docRef = doc(db, loc[0], loc[1]);
-   const productSnap = await getDoc(docRef);
 
+   const productSnap = await getDoc(docRef);
+   console.log(currentEmail);
    if (productSnap.exists()) {
       const docRef = doc(db, currentEmail, loc[1]);
       const accountSnap = await getDoc(docRef);
@@ -357,19 +379,22 @@ async function AddToBasket() {
 
 async function RemoveFromBasket() {
    const db = getFirestore(app);
-   currentEmail = "polberci@yahoo.ro";
+
+   const loc = this.id.split("/");
 
    const docRef = doc(db, currentEmail, this.id);
    const productSnap = await getDoc(docRef);
 
    if (productSnap.exists()) {
       let product = productSnap.data();
+      product.count--;
       if (product.count <= 0) {
-         await deleteDoc(doc(db, currentEmail, loc[1]));
+         loc[1] = capitalizeFirstLetter(loc[0]);
+         await deleteDoc(doc(db, currentEmail, loc[0]));
          LoadBasket();
          return;
       }
-      product.count--;
+
       await setDoc(doc(db, currentEmail, this.id), product);
    } else {
       console.log("No such document!");
@@ -380,16 +405,16 @@ var total = 0;
 
 async function LoadBasket() {
    const db = getFirestore(app);
-   currentEmail = "polberci@yahoo.ro";
 
    const q = query(collection(db, currentEmail));
 
    const product_list = document.getElementById("product-list");
    product_list.innerHTML = "";
    const querySnapshop = await getDocs(q);
+   total = 0;
    querySnapshop.forEach((doc) => {
       let accountData = doc.data();
-      total = doc.data().price;
+      total = total + doc.data().count * parseInt(doc.data().price);
 
       const product = document.createElement("div");
       product.classList.add("product");
@@ -486,4 +511,19 @@ class Product {
 
 function capitalizeFirstLetter(string) {
    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function capitalizeEachWord(str) {
+   // Split the string into an array of words
+   const words = str.split(" ");
+
+   // Capitalize the first letter of each word
+   const capitalizedWords = words.map(
+      (word) => word.charAt(0).toUpperCase() + word.slice(1)
+   );
+
+   // Join the words back into a single string
+   const capitalizedStr = capitalizedWords.join(" ");
+
+   return capitalizedStr;
 }

@@ -35,11 +35,31 @@ Shadow Style:
    align-content: normal;
    /* Gap */
    gap: 8px;
-   margin: 16px 8px 16px 8px;
+margin: 16px 8px 16px 8px;
+
 
   1 - grow,
   2 - how fast it shrinks
   3 - pixel ovveride 
-
   flex: ;
   align-self: center;
+
+
+Important Tags:
+<article> — this tag is used to define a big and meaningful piece of content (an article, a forum post, etc.) that goes as a standalone unit;
+<audio> — this tag shows an embedded sound or audio stream;
+<details> — is used to describe a widget from which the user can obtain additional information or controls on-demand;
+<dialog> — defines a dialog box or a subwindow a user can interact with in case of necessity;
+<embed> — this tag is used to embed a piece of multimedia content like videos, sounds, or any external apps;
+<footer> — this tag defines the content of the footer of the page, document, or section;
+<header> — defines the content of the header section of the page, document, or section;
+<main> — this tag helps define the most important and meaningful part of the page’s content (unlike <article>, the content wrapped in <main> is smaller, and can be inside of the <article> section);
+<nav> — this tag defines a page section with navigation links;
+<picture> — is used to define a container for multiple image sources;
+<source> — shows alternative sources for the embedded media elements like <audio> or <video>;
+<summary> — is used along with the <details> element to provide a summary visible to the user, so when the user clicks the summary, the additional information or content placed inside the <details> element becomes visible;
+<svg> — is used to embed an SVG file in an HTML document;
+<time> — this tag is used to encode dates and times (birthdays, events, meetings, etc.) in a machine-readable format;
+<video> — embeds video content in an HTML document without requiring any additional plugin to play a video.
+
+

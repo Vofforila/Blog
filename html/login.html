@@ -17,14 +17,12 @@
   <main class="main">
     <div class="navbar">
       <div class="navbar-top-left">
-        <img src="/img/default.png" alt="Error" class="logo">
+        <p class="logo-text big">©</p>
         <p class="logo-text big">Paul Berciu</p>
       </div>
       <div class="navbar-top-right">
-        <button type="button" class="mediumbutton button1"
-          onclick="location.href = '/html/login.html'"><span>Login</span></button>
-        <button type="button" class="mediumbutton button1"
-          onclick="location.href = '/html/register.html'"><span>Register</span></button>
+        <button type="button" class="mediumbutton button1" id="login-page-button"><span>Login</span></button>
+        <button type="button" class="mediumbutton button1" id="register-page-button"><span>Register</span></button>
       </div>
     </div>
     <div class=" register-container">
@@ -51,7 +49,8 @@
 
   </main>
   <script type="module" src="/javascript/firebase.js"></script>
-  <script src="/javascript/navigation.js"></script>
+  <script type="module" src="/javascript/navigation.js"></script>
+
 </body>
 
 </html>

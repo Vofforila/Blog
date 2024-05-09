@@ -14,16 +14,12 @@
   <main class="main">
     <div class="navbar">
       <div class="navbar-top-left">
-        <img src="/default/default.png" alt="Error" class="logo">
+        <p class="logo-text big">©</p>
         <p class="logo-text big">Paul Berciu</p>
       </div>
       <div class="navbar-top-right">
-        <button type="button" class="mediumbutton button1"
-          onclick="location.href = '/html/login.html'"><span>Login</span></button>
-        <button type="button" class="mediumbutton button1"
-          onclick="location.href = '/html/register.html'"><span>Register</span></button>
-        <button type="button" class="mediumbutton button1"
-          onclick="location.href = '/html/market.html'"><span>Market</span></button>
+        <button type="button" class="mediumbutton button1" id="market-page-button"><span>Market</span></button>
+        <button type="button" class="mediumbutton button1" id="logout-page-button"><span>Log out</span></button>
       </div>
     </div>
     <div class="basket-container">
@@ -45,11 +41,12 @@
       </div>
       <div class="pay-container">
         <p class="medium" id="total-price">Total: </p>
-        <button type="button" class="bigbutton" id="buy-button">Buy</button>
+        <button type="button" class="bigbutton button1" id="buy-button"><span>Buy</span></button>
       </div>
     </div>
   </main>
   <script type="module" src="/javascript/firebase.js"></script>
+  <script src="/javascript/navigation.js"></script>
 </body>
 
 </html>
