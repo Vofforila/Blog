@@ -43,6 +43,10 @@
    border: none;
 }
 
+.exchange-title {
+   align-self: center;
+}
+
 #exchange-holder {
    /* 1st 'VALUE' grow,2nd how fast it shrinks, 3rd pixel ovveride */
    flex: auto;
@@ -64,6 +68,7 @@
    /* Gap */
    gap: 8px;
    margin: 16px 8px 16px 8px;
+   align-self: center;
 }
 
 .container2 {

@@ -134,9 +134,11 @@ async function AddProduct() {
 
    var new_price;
    if (product_sale_price == 0 || product_sale_price == "") {
-      new_price = 0;
+      new_price = product_price;
+      product_price = 0;
    } else {
       new_price = product_price - product_sale_price;
+      console.log(new_price);
    }
 
    const docRef1 = doc(db, "type", product_type);
@@ -159,7 +161,7 @@ async function AddProduct() {
    try {
       await setDoc(
          docRef2,
-         new Product(product_name, product_price, new_price)
+         new Product(product_name, new_price, product_price)
       );
    } catch (e) {
       console.error("Error document: ", e);
@@ -267,6 +269,11 @@ async function LoadProducts() {
             const product_image_sale = document.createElement("div");
             product_image_sale.classList.add("product-image-sale");
             const product_image_sale_text = document.createElement("p");
+            product_image_sale_text.classList.add(
+               "big",
+               "bigweight",
+               "product-sale"
+            );
             if (_product.sale != 0) {
                product_image_sale_text.textContent = "Super Sale!";
             } else {
@@ -287,7 +294,12 @@ async function LoadProducts() {
             const product_sale_price_text = document.createElement("p");
             product_sale_price_text.classList.add("big", "product-price-text");
             const product_sale_price_text_del = document.createElement("del");
-            const del_node = document.createTextNode(_product.sale + " €");
+            var del_node;
+            if (_product.sale == 0) {
+               del_node = document.createTextNode("");
+            } else {
+               del_node = document.createTextNode(_product.sale + " €");
+            }
             product_sale_price_text_del.appendChild(del_node);
             product_sale_price_text.appendChild(product_sale_price_text_del);
             const add_product_button = document.createElement("button");

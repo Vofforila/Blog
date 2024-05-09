@@ -146,6 +146,12 @@
    align-self: center;
 }
 
+.product-sale {
+   color: black;
+   background-color: rgba(0, 0, 0, 0.204);
+   font-weight: 1000;
+}
+
 .product-name {
    flex: 1;
    align-self: center;
