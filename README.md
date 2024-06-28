@@ -15,4 +15,4 @@ This is a Blog + Database driven basket with Admin Interface for adding Products
 | API | Environments | Version |
 |-----|--------------|---------|
 | [Firebase](https://firebase.google.com/)  | Cloud | V1 |
-| [Webtehnologies] | Web |  |
+| Webtehnologies | Web |  |
