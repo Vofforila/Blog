@@ -10,9 +10,9 @@ This is a Blog + Database driven basket with Admin Interface for adding Products
 - **Realtime Update** - Updates Realtime by using Firebase API's
 - **You can reduce the price to a item** - Reduce a price to a item by using Admin Interface
 
-### API's
+### Tehnologies
 
-| API | Environments | Version |
+| Tehnologies | Environments | Version |
 |-----|--------------|---------|
 | [Firebase](https://firebase.google.com/)  | Cloud | V1 |
 | Web tehnologies | Web |  |
