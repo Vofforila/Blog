@@ -31,15 +31,14 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-storage.js";
 
 const firebaseConfig = {
-   apiKey: "AIzaSyAIvQKBeruvLdV74ySuHFPWHIgWw9uzy5A",
-   authDomain: "projects-175f8.firebaseapp.com",
+   apiKey: "AIzaSyCTqwXevwoUAxf2oC7LAKSeFxP-CJ2W_3k",
+   authDomain: "flutter-85128.firebaseapp.com",
    databaseURL:
-      "https://projects-175f8-default-rtdb.europe-west1.firebasedatabase.app",
-   projectId: "projects-175f8",
-   storageBucket: "projects-175f8.appspot.com",
-   messagingSenderId: "481400981162",
-   appId: "1:481400981162:web:383fb53435eedc2568f2d3",
-   measurementId: "G-MF9LGR4C33",
+      "https://flutter-85128-default-rtdb.europe-west1.firebasedatabase.app",
+   projectId: "flutter-85128",
+   storageBucket: "flutter-85128.appspot.com",
+   messagingSenderId: "875733790804",
+   appId: "1:875733790804:web:97c331ecf936c7637e3dc1",
 };
 
 // Get the variable value from localStorage on another page
@@ -149,7 +148,7 @@ async function AddProduct() {
    const db = getFirestore(app);
    const product_name = document.getElementById("product-name").value;
    const product_type = document.getElementById("product-type").value;
-   const product_price = document.getElementById("product-price").value;
+   var product_price = document.getElementById("product-price").value;
    const product_sale_price =
       document.getElementById("product-sale-price").value;
 
